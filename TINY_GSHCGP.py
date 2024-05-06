@@ -98,15 +98,15 @@ def climb():
     curr = randfunct() # initial individual
     curr.fit = fitness(curr) # evaluate fitness
 
-    for gen in xrange(GENERATIONS+1):
+    for gen in range(GENERATIONS+1):
         off = mutation(curr) # create offspring
         off.fit = fitness(off) # fitness offspring
         if off.fit < curr.fit: curr = off # offspring replaces parent if better
-        if gen % 10 == 0: print 'gen: ', gen , ' fit: ', curr.fit # print stats
+        if gen % 10 == 0: print('gen: ', gen , ' fit: ', curr.fit) # print stats
 
-    print 'Best individual: '
-    print curr.geno() # reconstruct genotype of final solution (LINEAR SIZE IN NUMBER OF GENERATIONS)
-    print 'Query best individual with all True inputs:'
-    print curr(*([True] * NUMVARS)) # query final solution
+    print('Best individual: ')
+    print(curr.geno()) # reconstruct genotype of final solution (LINEAR SIZE IN NUMBER OF GENERATIONS)
+    print('Query best individual with all True inputs:')
+    print(curr(*([True] * NUMVARS))) # query final solution
 
 climb()
