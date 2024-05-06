@@ -105,22 +105,22 @@ def mutation(p):
     
 def evolve():
     'Main function.'
-    pop = [ randfunct() for _ in xrange(POPSIZE) ] # initialise population
+    pop = [ randfunct() for _ in range(POPSIZE) ] # initialise population
 
-    for gen in xrange(GENERATIONS+1):
+    for gen in range(GENERATIONS+1):
         graded_pop = [ (fitness(ind), ind) for ind in pop ] # evaluate population fitness
-        sorted_pop = [ ind[1] for ind in sorted(graded_pop)] # sort population on fitness
-        print 'gen: ', gen , ' min fit: ', fitness(sorted_pop[0]), ' avg fit: ', sum(ind[0] for ind in graded_pop)/(POPSIZE*1.0) # print stats
+        sorted_pop = [ ind[1] for ind in sorted(graded_pop, key=lambda x: x[0])] # sort population on fitness
+        print('gen: ', gen , ' min fit: ', fitness(sorted_pop[0]), ' avg fit: ', sum(ind[0] for ind in graded_pop)/(POPSIZE*1.0)) # print stats
         parent_pop = sorted_pop[:int(TRUNC*POPSIZE)] # selected parents
         if gen == GENERATIONS: break
-        for i in xrange(POPSIZE): # create offspring population
+        for i in range(POPSIZE): # create offspring population
             par = random.sample(parent_pop, 2) # pick two random parents
             pop[i] = mutation(crossover(par[0],par[1])) # create offspring
 
-    print 'Best individual in last population: '
+    print('Best individual in last population: ')
     #print (sorted_pop[0]).geno() # reconstruct genotype of final solution (WARNING: EXPONENTIALLY LONG IN NUMBER OF GENERATIONS!)
-    print 'Query best individual in last population with all True inputs:'
-    print sorted_pop[0](*([True] * NUMVARS)) # however querying it to make predictions is quick
+    print('Query best individual in last population with all True inputs:')
+    print(sorted_pop[0](*([True] * NUMVARS))) # however querying it to make predictions is quick
 
 evolve()
 
