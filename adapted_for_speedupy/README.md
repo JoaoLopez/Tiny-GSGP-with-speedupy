@@ -1,3 +1,23 @@
+# Tiny GSGP Experiment
+
+The five trials used on the memoization techniques article are:
+
+- TINY_GSGP_10.py
+- TINY_GSGP_20.py
+- TINY_GSGP_40.py
+- TINY_GSGP_50.py
+- TINY_GSGP.py
+
+To execute a trial, type:
+
+```bash
+python speedupy/setup_exp/setup.py SCRIPT_NAME.py
+python SCRIPT_NAME.py --exec-mode manual
+```
+
+---
+README.md content from the original repository:
+
 
 TINY_GSGP.py: 
 =============

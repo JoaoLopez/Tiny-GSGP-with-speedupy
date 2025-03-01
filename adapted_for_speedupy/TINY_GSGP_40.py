@@ -8,7 +8,7 @@ import itertools
 NUMVARS = 5
 DEPTH = 4
 POPSIZE = 20
-GENERATIONS = 30
+GENERATIONS = 40
 TRUNC = 0.5
 vars = ['x' + str(i) for i in range(NUMVARS)]
 
