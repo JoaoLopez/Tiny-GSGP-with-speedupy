@@ -1,5 +1,9 @@
 # Tiny GSGP Experiment
 
+## Experiment dependencies
+This experiment has no dependencies.
+
+## Trials Used in the Article
 The five trials used on the memoization techniques article are:
 
 - TINY_GSGP_10.py
